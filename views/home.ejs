@@ -1,0 +1,83 @@
+<html>
+   <head>
+      <title>Upload A Video</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+      <link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet"
+         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script>
+   </head>
+
+   <body class = "container">
+
+<div>
+<h1>Welcome to Youtube Upload Application</h1>
+<h2>Please make sure to copy video to app folder<h2>
+</div>
+<%if(mess.length>0){%>
+
+    <p class="card-panel teal lighten-2">  <%=mess%></p>
+
+    <%}%>
+
+      <div class = "row">
+         <form class = "col s12" action='/getupload' method="post">
+            <div class = "row">
+               <div class = "file-field input-field">
+                  <div class = "btn">
+                     <span>Browse</span>
+                     <input type = "file" />
+                  </div>
+
+                     <input class = "file-path validate" type = "text" placeholder = "Upload file" name="pat" id="pat" />
+
+               </div>
+               <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="title" type="text" name="title">
+          <label for="first_name">Title</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="Desc" name="Desc" type="text" class="validate">
+          <label for="last_name">description</label>
+        </div>
+      </div>
+            </div>
+            <div class="row">
+<button type="submit" class="waves-effect waves-light btn">Upload</button>
+            </div>
+            <%if(mess2.length>0){%>
+
+                <p class="card-panel teal lighten-2">  <%=mess2%></p>
+
+                <%}else if(mess3.length>0){%>
+                 <p class="card-panel teal lighten-2">  <%=mess3%></p>
+                  <%}%>
+          </form>
+          <p>change your youtube video credentials</p>
+          <a href="/dochange" class="waves-effect waves-light btn">See the list of videos</a>
+          <br><br>
+          <form method="post" action="/finalchange">
+            <div class="row">
+       <div class="input-field col s6">
+         <input placeholder="videoId" id="video" type="text" name="video">
+
+       </div>
+       <div class="input-field col s6">
+         <input id="title" type="text" name="title">
+         <label for="Title">TTitle</label>
+       </div>
+
+       <div class="input-field col s6">
+         <input id="desc" type="text" name="desc">
+         <label for="Description">description</label>
+       </div>
+     </div>
+            <button type="submit" class="waves-effect waves-light btn">Submit</button>
+          </form>
+</body>
+</html>

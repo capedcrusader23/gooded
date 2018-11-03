@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Change video credentials</title>
+<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+ul{
+  list-style-type: none;
+}
+.jumbotron{
+  border:0px groove;
+  background-color:#F79F1F;
+  width:1000px;
+  font-family: 'Merriweather', serif;
+  font-weight:bold;
+  color:#6F1E51;
+  border-radius:10%;
+}
+body{
+  background-color:black;
+}
+</style>
+</head>
+
+<body>
+<div id="change">
+<ul v-for="x in video">
+<li>
+<div class="jumbotron">
+<p>KIND:  {{x.kind}}</p>
+<p>ETAG:  {{x.etag}}</p>
+<p>ID:  {{x.id}}</p>
+<p>TITLE:  {{x.title}}</p>
+<p>DESCRIPTION:  {{x.description}}</p>
+</div>
+</li>
+<br>
+</ul>
+
+
+</div>
+
+
+<script>
+new Vue({
+el:"#change",
+data:{
+  video:[<%all.forEach(function(x){%>
+    {kind:'<%=x.kind%>',etag:'<%=x.etag%>',id:'<%=x.id.videoId%>',title:'<%=x.snippet.title%>',description:'<%=x.snippet.description%>'},
+  <%})%>]
+}
+});
+
+</script>
+
+</body>
+</html>
